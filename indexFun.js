@@ -10,7 +10,6 @@ async function fetchData() {
   }
 }
 
-// Function to render section 2
 async function showSec2() {
   const data = await fetchData();
   if (data && data.sec2Data) {

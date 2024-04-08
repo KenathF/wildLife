@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
   
-        // Function to render section 2
         function renderSec2() {
           const sec2Title = document.getElementById("sec2Title");
           const sec2Content = document.getElementById("sec2Content");
