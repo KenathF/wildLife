@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const sec2Data = data.sec2Data;
         const sec3Data = data.sec3Data;
   
-        // Function to render section 1
+
         function renderSec1() {
           const sec1Title = document.getElementById("sec1Title");
           const sec1Content = document.getElementById("sec1Content");
