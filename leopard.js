@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Retrieve JSON data from external file
+    // fetch from json
     fetch('./leopard.json')
       .then(response => response.json())
       .then(data => {
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const sec3Data = data.sec3Data;
   
 
-        function renderSec1() {
+        function showSec1() {
           const sec1Title = document.getElementById("sec1Title");
           const sec1Content = document.getElementById("sec1Content");
           sec1Title.textContent = sec1Data.title;
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
   
-        function renderSec2() {
+        function showSec2() {
           const sec2Title = document.getElementById("sec2Title");
           const sec2Content = document.getElementById("sec2Content");
           sec2Title.textContent = sec2Data.title;
@@ -44,8 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
   
-        // Function to render section 3
-        function renderSec3() {
+
+        function showSec3() {
           const sec3Title = document.getElementById("sec3Title");
           const sec3Content = document.getElementById("sec3Content");
           sec3Title.textContent = sec3Data.title;
@@ -64,10 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
   
-        // Call render functions
-        renderSec1();
-        renderSec2();
-        renderSec3();
+        // methhod to show content
+        showSec1();
+        showSec2();
+        showSec3();
       })
       .catch(error => console.error('Error fetching JSON:', error));
   });

@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Function to display all newsletter subscriptions
+  // show newsletter subs
   function displaySubscriptions() {
-    var subscriptions = JSON.parse(localStorage.getItem("newsletterSubscriptions")) || [];
-    var subscriptionList = document.getElementById("subscriptionList");
+    let subscriptions = JSON.parse(localStorage.getItem("newsletterSubscriptions")) || [];
+    let subscriptionList = document.getElementById("subscriptionList");
     subscriptionList.innerHTML = "";
     subscriptions.forEach(function (email) {
-      var li = document.createElement("li");
+      let li = document.createElement("li");
       li.textContent = email;
-      var deleteButton = document.createElement("button");
+      let deleteButton = document.createElement("button");
       deleteButton.textContent = "Delete";
       deleteButton.addEventListener("click", function () {
         removeSubscription(email);
@@ -18,16 +18,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Function to remove a subscription
+  // to remove subscription
   function removeSubscription(email) {
-    var subscriptions = JSON.parse(localStorage.getItem("newsletterSubscriptions")) || [];
-    var index = subscriptions.indexOf(email);
+    let subscriptions = JSON.parse(localStorage.getItem("newsletterSubscriptions")) || [];
+    let index = subscriptions.indexOf(email);
     if (index !== -1) {
       subscriptions.splice(index, 1);
       localStorage.setItem("newsletterSubscriptions", JSON.stringify(subscriptions));
     }
   }
 
-  // Call the function to display subscriptions
+  
   displaySubscriptions();
 });

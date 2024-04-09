@@ -1,23 +1,24 @@
 document.getElementById("loginForm").addEventListener("submit", function(event) {
   event.preventDefault();
-  var username = document.getElementById("username").value;
-  var password = document.getElementById("password").value;
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
   
-  // Fetch user data from JSON file
+  // fetch from json
   fetch('./login.json')
     .then(response => response.json())
     .then(data => {
       const users = data.users;
-      // Check if the provided username and password match any user
+
+      // password check
       const user = users.find(u => u.username === username && u.password === password);
       if (user) {
-        // Authentication successful
-        // Store user information in sessionStorage
+        // if successful
+        // Store in sessionStorage
         sessionStorage.setItem('username', user.username);
-        sessionStorage.setItem('role', user.role); // Assuming there is a 'role' property in the user object
+        sessionStorage.setItem('role', user.role); 
         window.location.href = "./index.html"; // Redirect to index.html
       } else {
-        // Authentication failed
+        // if wrong
         document.getElementById("error").innerHTML = "Invalid username or password";
       }
     })

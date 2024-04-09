@@ -97,7 +97,7 @@ p{
 }
 
 .yala-image-gallery img:hover {
-    transition: 0.2s; /* Added 's' to specify seconds */
+    transition: 0.2s; 
     cursor: pointer;
     transform: scale(1.05);
 }
@@ -108,7 +108,6 @@ p{
 
 
 
-/* footer stylings /*/
 
 
 

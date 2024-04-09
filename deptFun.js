@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Retrieve JSON data from external file
+    // fetch from json
     fetch('./dept.json')
         .then(response => response.json())
         .then(data => {
@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const deptMapData = data.deptMapData;
             const headSecData = data.headSecData;
 
-            // Function to generate HTML for flexboxcontainer section
-            function renderFlexboxContainer() {
+           //function to show flexbox
+            function showFlexboxContainer() {
                 const flexboxContainer = document.querySelector(".flexboxcontainer");
                 flexboxData.forEach(item => {
                     const html = `
@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
 
-            // Function to generate HTML for Dept-Map section
-            function renderDeptMap() {
+            //function to show map
+            function showDeptMap() {
                 const deptMapContainer = document.querySelector(".Dept-Map");
                 const html = `
                     <div>
@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 deptMapContainer.innerHTML = html;
             }
 
-            function renderHeadSec() {
+        //function to show headsec
+            function showHeadSec() {
                 const headSecContainer = document.querySelector("#headsec");
                 const html = `
                     <div id="head">
@@ -42,10 +43,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 headSecContainer.innerHTML = html;
             }
 
-            // Call function to render content
-            renderHeadSec();
-            renderFlexboxContainer();
-            renderDeptMap();
+            // call methods to show content
+            showHeadSec();
+            showFlexboxContainer();
+            showDeptMap();
         })
         .catch(error => console.error('Error fetching JSON:', error));
 });

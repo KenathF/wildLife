@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Retrieve JSON data from external file
+    // fetch from json
     fetch('./animal.json')
       .then(response => response.json())
       .then(data => {
         const flexboxData = data.flexboxData;
         const sec2Data = data.sec2Data;
   
-        // Function to render flexboxcontainer
-        function renderFlexbox() {
+        
+        function showFlexbox() {
           const flexboxContainer = document.getElementById("flexboxContainer");
           flexboxData.forEach(animal => {
             const boxDiv = document.createElement("div");
@@ -20,10 +20,10 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
   
-        // Function to render sec2
-        function renderSec2() {
+        
+        function showSec2() {
           const sec2Content = document.getElementById("sec2Content");
-          sec2Content.classList.add("sec2"); // Add sec2 class to sec2Content
+          sec2Content.classList.add("sec2"); 
   
           sec2Data.locations.forEach(location => {
             const locationDiv = document.createElement("div");
@@ -41,9 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
   
-        // Call render functions
-        renderFlexbox();
-        renderSec2();
+        
+        showFlexbox();
+        showSec2();
       })
       .catch(error => console.error('Error fetching JSON:', error));
   });

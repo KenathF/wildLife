@@ -1,4 +1,4 @@
-// Function to fetch data from indexData.json
+// Fetch data from json
 async function fetchData() {
   try {
     const response = await fetch('./indexData.json');
@@ -18,7 +18,7 @@ async function showSec2() {
   }
 }
 
-// Function to render section 3
+
 async function showSec3() {
   const data = await fetchData();
   if (data && data.sec3Data) {
@@ -44,7 +44,7 @@ async function showSec3() {
   }
 }
 
-// Function to render section 4
+
 async function showSec4() {
   const data = await fetchData();
   if (data && data.sec4Data) {
@@ -58,14 +58,14 @@ async function showSec4() {
   }
 }
 
-// Call render functions when the DOM content is loaded
+// Call methods  when the DOM content is loaded
 document.addEventListener("DOMContentLoaded", function () {
   showSec2();
   showSec3();
   showSec4();
 });
 
-// Event listener for newsletter form submission
+//newsletter
 document.getElementById("newsletterForm").addEventListener("submit", function (event) {
   event.preventDefault();
   let email = document.getElementById("email").value;
@@ -83,35 +83,34 @@ function saveSubscription(email) {
 
 let role = sessionStorage.getItem('role');
 
-// Function to toggle login/logout link
-// Function to toggle login/logout link and edit button
+// logout login button method
 function loginAndlogout() {
   let loginLogoutLink = document.getElementById('loginLogoutLink');
   let editButton = document.getElementById('editButton');
 
   if (role) {
-    // If user is logged in
-    loginLogoutLink.innerHTML = '<a href="#">Logout</a>'; // Modify the link text or URL as needed
+    // if user logged
+    loginLogoutLink.innerHTML = '<a href="#">Logout</a>'; 
     loginLogoutLink.addEventListener('click', function() {
       sessionStorage.clear();
-      window.location.href = './index.html'; // Redirect to appropriate page after logout
+      window.location.href = './index.html'; 
     });
 
-    // Show edit button
+    // show edit button 
     editButton.style.display = 'block';
   } else {
-    // If user is not logged in
-    loginLogoutLink.innerHTML = '<a href="./login.html">Login</a>'; // Modify the link text or URL as needed
+    // if user is not logged
+    loginLogoutLink.innerHTML = '<a href="./login.html">Login</a>'; // 
 
-    // Hide edit button
+    // dont show edit button
     editButton.style.display = 'none';
   }
 }
 
-// Call the function to toggle login/logout link
+
 loginAndlogout();
 
-// Display admin link if user is admin
+// show admin link if user is a admin
 if (role === 'admin') {
   let adminLink = document.getElementById('adminLink');
   adminLink.style.display = 'block';
@@ -121,7 +120,7 @@ function showEditForms() {
   document.getElementById("editForms").style.display = "block";
 }
 
-// Function to save changes in Section 2
+// saveing changes method
 function saveSec2Changes() {
   const heading = document.getElementById("sec2Heading").value;
   const paragraph = document.getElementById("sec2P1").value;
@@ -131,11 +130,11 @@ function saveSec2Changes() {
       p1: paragraph
     }
   };
-  saveData(newData); // Save the updated data
-  updatePageContent(); // Update the content on the page
+  saveData(newData); 
+  updatePageContent(); 
 }
 
-// Function to update page content from localStorage
+
 function updatePageContent() {
   const storedData = JSON.parse(localStorage.getItem("editableContent"));
   if (storedData && storedData.sec2Data) {
@@ -144,7 +143,7 @@ function updatePageContent() {
   }
 }
 
-// Function to save data to localStorage
+//  save data to localStorage
 function saveData(data) {
   localStorage.setItem("editableContent", JSON.stringify(data));
 }
